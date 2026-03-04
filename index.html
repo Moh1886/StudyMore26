@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="منظم المذاكرة - أداة متكاملة لتنظيم الدراسة والمذاكرة بكفاءة">
+    <title>منظم المذاكرة</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo-section">
+                <h1>📚 منظم المذاكرة</h1>
+                <div id="userInfo" class="user-info">
+                    <p id="userName" style="margin: 0; font-size: 0.9em; color: white;"></p>
+                    <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-section="dashboard">لوحة التحكم</a></li>
+                <li><a href="#" class="nav-link" data-section="schedule">الجدول الدراسي</a></li>
+                <li><a href="#" class="nav-link" data-section="subjects">المواد الدراسية</a></li>
+                <li><a href="#" class="nav-link" data-section="tasks">قائمة المهام</a></li>
+                <li><a href="#" class="nav-link" data-section="notes">الملاحظات</a></li>
+                <li><a href="#" class="nav-link" data-section="exams">الامتحانات</a></li>
+                <li><a href="#" class="nav-link" data-section="timer">مؤقت بوموداعو</a></li>
+                <li><a href="#" class="nav-link" data-section="stats">الإحصائيات</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <h2>لوحة التحكم</h2>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>اليوم</h3>
+                        <p class="date-display" id="todayDate"></p>
+                        <p id="todayTasks">لا توجد مهام لهذا اليوم</p>
+                    </div>
+                    <div class="card">
+                        <h3>المواد النشطة</h3>
+                        <ul id="activeSubjects" class="subject-list"></ul>
+                    </div>
+                    <div class="card">
+                        <h3>الإحصائيات السريعة</h3>
+                        <p>إجمالي الساعات: <span id="totalHours">0</span></p>
+                        <p>المهام المكتملة: <span id="completedTasks">0</span></p>
+                        <p>معدل الإنجاز: <span id="completionRate">0</span>%</p>
+                    </div>
+                    <div class="card">
+                        <h3>القادم</h3>
+                        <p id="nextSession">لا توجد جلسات مقررة</p>
+                    </div>
+                    <div class="card">
+                        <h3>عداد المستخدمين</h3>
+                        <p style="font-size: 2em; font-weight: bold; color: #667eea;">
+                            <span id="newUsersCount">0</span>
+                        </p>
+                        <p style="color: #666; font-size: 0.9em;">مستخدمين جدد</p>
+                    </div>
+                    <div class="card">
+                        <h3>عدد الزيارات</h3>
+                        <p style="font-size: 2em; font-weight: bold; color: #764ba2;">
+                            <span id="visitCount">0</span>
+                        </p>
+                        <p style="color: #666; font-size: 0.9em;">زيارة للموقع</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Section -->
+            <section id="schedule" class="section">
+                <h2>الجدول الدراسي</h2>
+                <div class="schedule-controls">
+                    <button id="addScheduleBtn" class="btn btn-primary">إضافة جلسة</button>
+                </div>
+                <div class="schedule-container">
+                    <div id="scheduleList" class="schedule-list"></div>
+                </div>
+
+                <!-- Add Schedule Modal -->
+                <div id="scheduleModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>إضافة جلسة دراسية</h3>
+                        <form id="scheduleForm">
+                            <input type="text" id="scheduleSubject" placeholder="المادة" required>
+                            <input type="date" id="scheduleDate" required>
+                            <input type="time" id="scheduleStartTime" required>
+                            <input type="time" id="scheduleEndTime" required>
+                            <textarea id="scheduleNotes" placeholder="ملاحظات (اختياري)"></textarea>
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subjects Section -->
+            <section id="subjects" class="section">
+                <h2>المواد الدراسية</h2>
+                
+                <!-- Grade Selection -->
+                <div class="grade-selector-card">
+                    <h3>اختر الصف الدراسي</h3>
+                    <div class="grade-buttons">
+                        <button class="grade-btn" data-grade="primary-1">الابتدائي 1</button>
+                        <button class="grade-btn" data-grade="primary-2">الابتدائي 2</button>
+                        <button class="grade-btn" data-grade="primary-3">الابتدائي 3</button>
+                        <button class="grade-btn" data-grade="primary-4">الابتدائي 4</button>
+                        <button class="grade-btn" data-grade="primary-5">الابتدائي 5</button>
+                        <button class="grade-btn" data-grade="primary-6">الابتدائي 6</button>
+                        <button class="grade-btn" data-grade="middle-1">الإعدادي 1</button>
+                        <button class="grade-btn" data-grade="middle-2">الإعدادي 2</button>
+                        <button class="grade-btn" data-grade="middle-3">الإعدادي 3</button>
+                        <button class="grade-btn" data-grade="secondary-1">الثانوي 1</button>
+                        <button class="grade-btn" data-grade="secondary-2">الثانوي 2</button>
+                        <button class="grade-btn" data-grade="secondary-3">الثانوي 3</button>
+                    </div>
+                    <p id="selectedGradeInfo" style="text-align: center; color: #666; margin-top: 10px;">اختر صفك الدراسي بدءاً</p>
+                </div>
+
+                <div class="subjects-controls">
+                    <button id="addSubjectBtn" class="btn btn-primary">إضافة مادة جديدة</button>
+                    <button id="browseSubjectsBtn" class="btn btn-secondary">استعراض مواد الصف</button>
+                </div>
+
+                <!-- Available Subjects Library -->
+                <div id="availableSubjectsSection" class="subjects-library" style="display: none;">
+                    <h3>المواد المتاحة لصفك</h3>
+                    <div id="availableSubjectsList" class="available-subjects-grid"></div>
+                </div>
+
+                <!-- Current Subjects -->
+                <h3 style="margin-top: 30px;">مواد دراستك</h3>
+                <div id="subjectsList" class="subjects-grid"></div>
+
+                <!-- Add Subject Modal -->
+                <div id="subjectModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>إضافة مادة دراسية</h3>
+                        <form id="subjectForm">
+                            <select id="subjectGrade" required>
+                                <option value="">اختر الصف الدراسي أولاً</option>
+                                <option value="primary-1">الابتدائي 1</option>
+                                <option value="primary-2">الابتدائي 2</option>
+                                <option value="primary-3">الابتدائي 3</option>
+                                <option value="primary-4">الابتدائي 4</option>
+                                <option value="primary-5">الابتدائي 5</option>
+                                <option value="primary-6">الابتدائي 6</option>
+                                <option value="middle-1">الإعدادي 1</option>
+                                <option value="middle-2">الإعدادي 2</option>
+                                <option value="middle-3">الإعدادي 3</option>
+                                <option value="secondary-1">الثانوي 1</option>
+                                <option value="secondary-2">الثانوي 2</option>
+                                <option value="secondary-3">الثانوي 3</option>
+                            </select>
+                            <input type="text" id="subjectName" placeholder="اسم المادة" required>
+                            <input type="color" id="subjectColor" value="#3498db">
+                            <input type="number" id="subjectGoalHours" placeholder="عدد الساعات المستهدفة" min="1" required>
+                            <textarea id="subjectDescription" placeholder="وصف المادة (اختياري)"></textarea>
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="section">
+                <h2>قائمة المهام</h2>
+                <div class="tasks-controls">
+                    <button id="addTaskBtn" class="btn btn-primary">إضافة مهمة</button>
+                    <select id="taskFilter" class="filter-select">
+                        <option value="all">الكل</option>
+                        <option value="active">نشطة</option>
+                        <option value="completed">مكتملة</option>
+                    </select>
+                </div>
+                <div id="tasksList" class="tasks-list"></div>
+
+                <!-- Add Task Modal -->
+                <div id="taskModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>إضافة مهمة</h3>
+                        <form id="taskForm">
+                            <input type="text" id="taskTitle" placeholder="عنوان المهمة" required>
+                            <select id="taskSubject" required>
+                                <option value="">اختر المادة</option>
+                            </select>
+                            <input type="date" id="taskDueDate" required>
+                            <select id="taskPriority">
+                                <option value="low">منخفضة</option>
+                                <option value="medium" selected>متوسطة</option>
+                                <option value="high">عالية</option>
+                            </select>
+                            <textarea id="taskDescription" placeholder="تفاصيل المهمة (اختياري)"></textarea>
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes Section -->
+            <section id="notes" class="section">
+                <h2>الملاحظات</h2>
+                <div class="notes-controls">
+                    <button id="addNoteBtn" class="btn btn-primary">إضافة ملاحظة</button>
+                </div>
+                <div id="notesList" class="notes-grid"></div>
+
+                <!-- Add Note Modal -->
+                <div id="noteModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>إضافة ملاحظة</h3>
+                        <form id="noteForm">
+                            <input type="text" id="noteTitle" placeholder="عنوان الملاحظة" required>
+                            <select id="noteSubject" required>
+                                <option value="">اختر المادة</option>
+                            </select>
+                            <textarea id="noteContent" placeholder="محتوى الملاحظة" required></textarea>
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exams Section -->
+            <section id="exams" class="section">
+                <h2>الامتحانات</h2>
+                <div class="exams-controls">
+                    <button id="addExamBtn" class="btn btn-primary">إضافة امتحان</button>
+                </div>
+                <div id="examsList" class="exams-list"></div>
+
+                <!-- Add Exam Modal -->
+                <div id="examModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>إضافة امتحان</h3>
+                        <form id="examForm">
+                            <input type="text" id="examSubject" placeholder="المادة" required>
+                            <input type="date" id="examDate" required>
+                            <input type="time" id="examTime" required>
+                            <input type="text" id="examLocation" placeholder="مكان الامتحان (اختياري)">
+                            <input type="number" id="examDuration" placeholder="مدة الامتحان (دقائق)" required>
+                            <input type="number" id="examWeight" placeholder="الوزن/الدرجات" required>
+                            <textarea id="examNotes" placeholder="ملاحظات الامتحان (اختياري)"></textarea>
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pomodoro Timer Section -->
+            <section id="timer" class="section">
+                <h2>مؤقت بوموداعو</h2>
+                <div class="timer-container">
+                    <div class="timer-display">
+                        <div class="timer-circle">
+                            <span id="timerMinutes">25</span>:<span id="timerSeconds">00</span>
+                        </div>
+                        <select id="timerSubject" class="timer-subject-select">
+                            <option value="">اختر المادة (اختياري)</option>
+                        </select>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="timerStartBtn" class="btn btn-primary">ابدأ</button>
+                        <button id="timerPauseBtn" class="btn btn-secondary" disabled>إيقاف</button>
+                        <button id="timerResetBtn" class="btn btn-secondary">إعادة تعيين</button>
+                    </div>
+                    <div class="timer-settings">
+                        <label>وقت العمل (دقائق):</label>
+                        <input type="number" id="workDuration" min="1" value="25">
+                        <label>وقت الراحة (دقائق):</label>
+                        <input type="number" id="breakDuration" min="1" value="5">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section id="stats" class="section">
+                <h2>الإحصائيات</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>إجمالي ساعات المذاكرة</h3>
+                        <p class="stat-value" id="totalStudyHours">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>المهام المكتملة</h3>
+                        <p class="stat-value" id="statsCompletedTasks">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>معدل الإنجاز</h3>
+                        <p class="stat-value" id="statsCompletionRate">0%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>الامتحانات القادمة</h3>
+                        <p class="stat-value" id="upcomingExams">0</p>
+                    </div>
+                </div>
+                <div class="stats-chart">
+                    <h3>ساعات المذاكرة حسب المادة</h3>
+                    <div id="subjectStats" class="subject-stats"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>تم تطوير هذا الموقع بواسطة <strong style="color: #667eea;">محمد احمد حسن</strong></p>
+        <p style="margin-top: 5px; font-size: 0.9em;">منظم المذاكرة الإسلامي © 2024 - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

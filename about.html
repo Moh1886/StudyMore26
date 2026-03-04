@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حول الموقع - منظم المذاكرة الإسلامي</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .about-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .about-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+
+        .about-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .about-body {
+            padding: 40px;
+		  max-height: 70vh;
+		  overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #333;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f5f5f5;
+            border-right: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .features-list li::before {
+            content: "✓ ";
+            color: #2ecc71;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .programmer-info {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-right: 4px solid #667eea;
+            margin-top: 20px;
+        }
+
+        .programmer-info h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .programmer-info p {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .verse {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            color: #667eea;
+            margin: 20px 0;
+            font-size: 1.1em;
+            border-right: 4px solid #2ecc71;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .about-header h1 {
+                font-size: 1.8em;
+            }
+
+            .about-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <div class="about-card">
+            <div class="about-header">
+                <h1>📚 منظم المذاكرة الإسلامي</h1>
+                <p>موقع متكامل لتنظيم الدراسة والمذاكرة بكفاءة</p>
+            </div>
+
+            <div class="about-body">
+                <div class="verse">
+                    ﴿وَقُلْ رَبِّ زِدْنِي عِلْمًا﴾
+                </div>
+
+                <div class="section">
+                    <h2>🎯 عن الموقع</h2>
+                    <p>
+                        منظم المذاكرة الإسلامي هو موقع ويب متكامل تم تطويره لمساعدة الطلاب والطالبات على تنظيم دراستهم ومذاكرتهم بكفاءة عالية.
+                        يجمع الموقع بين التصميم الحديث والوظائف القوية، مما يجعله أداة فعّالة للطلاب من جميع المراحل الدراسية.
+                    </p>
+                    <p>
+                        الموقع مصمم بعناية فائقة ليعكس القيم الإسلامية، حيث يحتوي على آيات قرآنية كريمة وألوان وتصاميم تعكس الهوية الإسلامية.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>✨ المميزات الرئيسية</h2>
+                    <ul class="features-list">
+                        <li>نظام تسجيل دخول وإنشاء حساب آمن</li>
+                        <li>لوحة تحكم شاملة للمتابعة اليومية</li>
+                        <li>جدول دراسي منظم حسب الوقت والمادة</li>
+                        <li>إدارة المواد الدراسية متعددة المستويات</li>
+                        <li>قائمة مهام ذكية مع تحديد الأولويات</li>
+                        <li>نظام ملاحظات منظم حسب المادة</li>
+                        <li>تتبع الامتحانات والتحضير لها</li>
+                        <li>مؤقت بوموداعو الشهير للمذاكرة الفعّالة</li>
+                        <li>إحصائيات مفصلة عن أداء الطالب</li>
+                        <li>الحفظ الآلي للبيانات (بدون الحاجة لإنترنت)</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>🔒 الأمان والخصوصية</h2>
+                    <p>
+                        جميع بيانات المستخدم تُحفظ محلياً في ذاكرة المتصفح (LocalStorage)، مما يعني:
+                    </p>
+                    <ul class="features-list">
+                        <li>بيانات آمنة وخاصة بك فقط</li>
+                        <li>لا حاجة للاتصال بالإنترنت للعمل</li>
+                        <li>بيانات تبقى حتى بعد إغلاق المتصفح</li>
+                        <li>لا يتم مشاركة أي بيانات مع جهات خارجية</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>🌟 من المناسب استخدام هذا الموقع؟</h2>
+                    <p>هذا الموقع مناسب للجميع:</p>
+                    <ul class="features-list">
+                        <li>طلاب المدارس بجميع المراحل</li>
+                        <li>طلاب الجامعات</li>
+                        <li>الأشخاص الذين يتابعون دورات تعليمية</li>
+                        <li>أي شخص يريد تنظيم وقته الدراسي</li>
+                    </ul>
+                </div>
+
+                <div class="programmer-info">
+                    <h3>📝 معلومات المطور</h3>
+                    <p>
+                        <strong>اسم المبرمج:</strong> محمد احمد حسن
+                    </p>
+                    <p>
+                        <strong>التاريخ:</strong> 2024-2026
+                    </p>
+                    <p>
+                        <strong>الهدف:</strong> تقديم أداة تعليمية مجانية وسهلة الاستخدام لكل طالب وطالبة يريدون تحسين إنتاجيتهم الدراسية.
+                    </p>
+                    <p style="margin-top: 15px; font-size: 0.95em; color: #666;">
+                        🤝 هذا الموقع صُنع بحب وتفاني لخدمة المجتمع التعليمي الإسلامي.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>📞 التواصل والدعم</h2>
+                    <p>
+                        إذا كان لديك أي استفسارات أو اقتراحات أو وجدت أي مشكلة في الموقع، يرجى التواصل مع المطور.
+                    </p>
+                </div>
+
+                <a href="auth.html" class="back-button">← العودة إلى تسجيل الدخول</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

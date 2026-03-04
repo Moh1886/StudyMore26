@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظم المذاكرة - أهلا وسهلا</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .welcome-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .header .emoji {
+            display: block;
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            opacity: 0.95;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .verse {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+            text-align: right;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #f5f5f5 0%, #fcfcfc 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-right: 4px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+
+        .feature p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            padding: 20px;
+            background: #f5f5f5;
+            text-align: center;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .footer strong {
+            color: #667eea;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header .emoji {
+                font-size: 2.5em;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="header">
+            <span class="emoji">📚</span>
+            <h1>منظم المذاكرة</h1>
+            <p>نظم دراستك بذكاء</p>
+        </div>
+
+        <div class="content">
+            <h2>أهلا وسهلا بك! 👋</h2>
+            <p>
+                موقعك المثالي لتنظيم الدراسة والمذاكرة بكفاءة. ابدأ رحلتك التعليمية الآن واستمتع بجميع الميزات المذهلة!
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <h3>📋 جدول دراسي</h3>
+                    <p>نظم جلساتك بسهولة</p>
+                </div>
+                <div class="feature">
+                    <h3>✅ مهام ذكية</h3>
+                    <p>تتبع مهامك بكفاءة</p>
+                </div>
+                <div class="feature">
+                    <h3>⏱️ مؤقت بوموداعو</h3>
+                    <p>مذاكرة منتجة</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 إحصائيات</h3>
+                    <p>تابع تقدمك</p>
+                </div>
+            </div>
+
+            <p style="color: #999; font-size: 0.95em;">
+                ✨ جميع بياناتك محفوظة محلياً وآمنة تماماً • لا تحتاج إلى إنترنت
+            </p>
+
+            <div class="buttons">
+                <a href="auth.html" class="btn btn-primary">ابدأ الآن</a>
+                <a href="guide.html" class="btn btn-secondary">دليل سريع</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>من تطوير <strong>محمد احمد حسن</strong> | منظم المذاكرة © 2024</p>
+        </div>
+    </div>
+</body>
+</html>
